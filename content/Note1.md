@@ -4,7 +4,7 @@ draft: false
 description: Description of the page used for link previews.
 aliases: ["Example", "пример"]
 permalink:
-date:2025-05-16
+date: 2025-05-16
 tags:
   - example-tag
 ---
