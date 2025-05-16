@@ -8,7 +8,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Мои проекты",
+    pageTitle: "Smirnov Anatoly",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
