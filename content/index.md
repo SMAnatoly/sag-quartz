@@ -1,6 +1,5 @@
 ---
-title: Welcome to Quartz
+title: Welcome
 ---
-oiui
-This is a blank Quartz installation.
-See the [documentation](https://quartz.jzhao.xyz) for how to get started.
+Всем привет!
+Если вы зашли сюда и вам что-то понравиться, я буду доволен!
