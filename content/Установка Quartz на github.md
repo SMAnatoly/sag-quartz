@@ -15,9 +15,16 @@ tags:
 Для установки первым делом я попробовал воспользоваться инструкцией от [nicolevanderhoeven](https://notes.nicolevanderhoeven.com/How+to+publish+Obsidian+notes+with+Quartz+on+GitHub+Pages)
 Но позже немного ее модифицировал.
 
-# 1. Установил Quartz на Ubuntu
+# 0. Prerequisits
 
-Просто выполните эти команды в той директории, в которой хотите увидеть приложение.
+- [NodeJS](https://notes.nicolevanderhoeven.com/NodeJS) последгюю версию (проверить версию `node -v`)
+- [NPM](https://notes.nicolevanderhoeven.com/Node+Package+Manager) последгюю версию  (проверить версию `npm -v`)
+- [Git](https://notes.nicolevanderhoeven.com/Git) (проверить версию `git --version`)
+
+
+# 1. Установка Quartz на Ubuntu
+
+Просто выполните эти команды в той директории, в которую хотите установить приложение.
 ````bash
 git clone https://github.com/jackyzha0/quartz.git
 cd quartz
@@ -30,25 +37,26 @@ npx quartz create
 git clone https://github.com/jackyzha0/quartz.git 
 ````
 
-Переходим в папку которая создалась после скачивания
+Перейдите в папку, которая создалась после скачивания.
 ````bash
 cd quartz
 ````
 
-Команда скачает все зависимости нужные для Quartz
+Команда скачивает все зависимости нужные для Quartz.
 ````bash
 npm i
 ````
 
-Команда запустит процесс конфигурирования приложения
+Команда запустит процесс конфигурирования приложения.
 ````bash
 npx quartz create
 ````
 
 
-# 2. Создал репозиторий GitHub Pages
+# 2. Создать репозиторий GitHub Pages
 
-GitHub
+Зайти на https://pages.github.com/ и выполнить инструкции интерактивного помошника.
+Единственное на что следует обратить внимание, нужно 
 
 # 3. Синхронизировал заметки Obsidian с репозиторием
 
