@@ -1,0 +1,62 @@
+---
+title: Установка Quartz на github
+draft: false
+description: Мой субъективный опыт.
+aliases:
+  - Quartz
+  - github
+permalink: 
+date: 2025-05-17
+tags:
+  - Quartz
+  - Github
+---
+
+Давно думал над тем, что было бы неплохо заполучить подобие [Obsidian](https://obsidian.md/) в web. И вот внезапно такое приложение обнаружилось, называется [Quartz](https://quartz.jzhao.xyz/)
+
+
+Для установки первым делом я попробовал воспользоваться инструкцией от [nicolevanderhoeven](https://notes.nicolevanderhoeven.com/How+to+publish+Obsidian+notes+with+Quartz+on+GitHub+Pages)
+Но позже немного ее модифицировал.
+
+# 1. Установил Quartz на Ubuntu
+
+````bash
+git clone https://github.com/jackyzha0/quartz.git
+cd quartz
+npm inpx 
+quartz create
+````
+
+# 2. Создал репозиторий GitHub Pages
+
+GitHub
+
+# 3. Синхронизировал заметки Obsidian с репозиторием
+
+
+````bash
+git clone --filter=blob:none --no-checkout https://github.com/SMAnatoly/sag-quartz.git
+git sparse-checkout set content
+git checkout origin/v4
+git pull origin v4
+
+
+git checkout v4
+git branch -u origin/v4 v4
+
+git status
+
+>create file
+
+git add content/test.md
+git commit -m "Add new files to content folder"
+
+git push origin v4
+````
+
+
+
+
+
+
+
