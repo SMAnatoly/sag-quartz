@@ -17,12 +17,34 @@ tags:
 
 # 1. Установил Quartz на Ubuntu
 
+Просто выполните эти команды в той директории, в которой хотите увидеть приложение.
 ````bash
 git clone https://github.com/jackyzha0/quartz.git
 cd quartz
-npm inpx 
-quartz create
+npm i
+npx quartz create
 ````
+
+Команда скачивает оригинальный репозиторий в выбранную локальную папку.
+````bash
+git clone https://github.com/jackyzha0/quartz.git 
+````
+
+Переходим в папку которая создалась после скачивания
+````bash
+cd quartz
+````
+
+Команда скачает все зависимости нужные для Quartz
+````bash
+npm i
+````
+
+Команда запустит процесс конфигурирования приложения
+````bash
+npx quartz create
+````
+
 
 # 2. Создал репозиторий GitHub Pages
 
