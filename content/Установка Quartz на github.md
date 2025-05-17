@@ -2,9 +2,6 @@
 title: Установка Quartz на github
 draft: false
 description: Мой субъективный опыт.
-aliases:
-  - Quartz
-  - github
 permalink: 
 date: 2025-05-17
 tags:
