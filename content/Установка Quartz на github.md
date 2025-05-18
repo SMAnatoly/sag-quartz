@@ -20,8 +20,6 @@ tags:
 - [NodeJS](https://notes.nicolevanderhoeven.com/NodeJS) последгюю версию (проверить версию `node -v`)
 - [NPM](https://notes.nicolevanderhoeven.com/Node+Package+Manager) последгюю версию  (проверить версию `npm -v`)
 - [Git](https://notes.nicolevanderhoeven.com/Git) (проверить версию `git --version`)
-
-
 # 1. Установка Quartz на Ubuntu
 
 Просто выполните эти команды в той директории, в которую хотите установить приложение.
@@ -51,42 +49,107 @@ npm i
 ````bash
 npx quartz create
 ````
-
-
 # 2. Создать репозиторий GitHub Pages
 
 Зайти на https://pages.github.com/ и выполнить инструкции интерактивного помошника.
 
 При установке нужно оставить такие настройки:
 ![[20250518091037.png]]
+Для автоматичесмкого деплоя необходимо создать файл `quartz/.github/workflows/deploy.yml`
 
+И скопировать в него следующее содержимое:
+````yml
+name: Deploy Quartz site to GitHub Pages
+ 
+on:
+  push:
+    branches:
+      - v4
+ 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+ 
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+ 
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for git info
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install Dependencies
+        run: npm ci
+      - name: Build Quartz
+        run: npx quartz build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+ 
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+````
 
+После этого необходимо настроить синхронизацию со своим репозиторием
+````bash
+# list all the repositories that are tracked
+git remote -v
+ 
+# if the origin doesn't match your own repository, set your repository as the origin
+git remote set-url origin REMOTE-URL
+ 
+# if you don't have upstream as a remote, add it so updates work
+git remote add upstream https://github.com/jackyzha0/quartz.git
+````
+
+После этого отправить свою установленную версию в GitHub Pages
+````bash
+npx quartz sync --no-pull
+````
 # 3. Синхронизировал заметки Obsidian с репозиторием
 
+Если хочется синхронизировать только папку с публикуемым контентом, можно проделать следующие шаги на локальном компьютере
 
+Настроить синхронизацию одной папки
 ````bash
-git clone --filter=blob:none --no-checkout https://github.com/SMAnatoly/sag-quartz.git
+git clone --filter=blob:none --no-checkout https://github.com/<your_name>/<your_name>.git
 git sparse-checkout set content
 git checkout origin/v4
 git pull origin v4
-
-
 git checkout v4
 git branch -u origin/v4 v4
+````
 
-git status
+После этого изменения в этой папке можно отправлять следующим образом
 
->create file
-
+Если локально создать новый файл test.md
+````bash
 git add content/test.md
 git commit -m "Add new files to content folder"
 
 git push origin v4
 ````
 
-
-
-
+Наличие изменений для синхронизации можно проверить так:
+````bash
+git status
+````
 
 
 
