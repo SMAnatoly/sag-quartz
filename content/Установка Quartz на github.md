@@ -49,7 +49,7 @@ npm i
 ````bash
 npx quartz create
 ````
-# 2. Создать репозиторий GitHub Pages
+# 2. Создание репозитория GitHub Pages
 
 Зайти на https://pages.github.com/ и выполнить инструкции интерактивного помошника.
 
@@ -122,7 +122,7 @@ git remote add upstream https://github.com/jackyzha0/quartz.git
 ````bash
 npx quartz sync --no-pull
 ````
-# 3. Синхронизировал заметки Obsidian с репозиторием
+# 3. Синхронизация заметок Obsidian с репозиторием
 
 Если хочется синхронизировать только папку с публикуемым контентом, можно проделать следующие шаги на локальном компьютере
 
